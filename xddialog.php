@@ -1,5 +1,5 @@
 <?php
-class dialog{
+class xddialog{
   public $utime = 0;
 	public $userid = 0;
 	public $err = '';
