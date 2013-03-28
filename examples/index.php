@@ -1,6 +1,6 @@
 <?php
 include 'class.db.php';
-include 'xddialog.php';
+include '../xddialog.php';
 $db = new db('localhost','root','','dialog');
 $add = false;
 if( !isset($_COOKIE['userid']) or !intval($_COOKIE['userid']) or !$db->exists('user',intval($_COOKIE['userid'])) ){
