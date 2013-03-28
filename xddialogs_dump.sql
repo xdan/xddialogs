@@ -16,6 +16,8 @@ CREATE TABLE `pfx_dialog` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+INSERT INTO `pfx_dialog` (`id`, `public`, `hash`, `userid`) VALUES
+(4, 1364454719, 'zPcfYXgp', 2);
 -- --------------------------------------------------------
 
 -- 
