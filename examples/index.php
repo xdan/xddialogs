@@ -71,7 +71,7 @@ if(!isset($_GET['action'])){
 </div>
 <div class="alert alert-block">
 <a href="http://xdan.ru/Sistema-dialogov-na-php-kak-v-v-kontakte.html">xddialog - система диалогов на php</a>&nbsp;&nbsp;&nbsp;
-<a href="https://github.com/xdan/xddialogs">githab</a>
+<a href="https://github.com/xdan/xddialogs">github</a>
 </div>
 	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript" src="js/dialog.js"></script>
