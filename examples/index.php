@@ -1,7 +1,7 @@
 <?php
 include 'class.db.php';
 include '../xddialog.php';
-$db = new db('localhost','root','','dialog');
+$db = new db('localhost','root','','');
 $add = false;
 if( !isset($_COOKIE['userid']) or !intval($_COOKIE['userid']) or !$db->exists('user',intval($_COOKIE['userid'])) ){
   $db->insert('user',array('name'=>substr(md5(time()),0,8)));
@@ -44,7 +44,7 @@ if(!isset($_GET['action'])){
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Система диалогов аля вконтакте</title>
+    <title>Пример - Система диалогов аля вконтакте</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="style.css" rel="stylesheet" media="screen">
@@ -69,6 +69,7 @@ if(!isset($_GET['action'])){
 	</div>
 	<div class="clearex"></div>
 </div>
+<a href="http://xdan.ru/Sistema-dialogov-na-php-kak-v-v-kontakte.html">xddialog - система диалогов на php</a>
 	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript" src="js/dialog.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
