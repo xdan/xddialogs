@@ -5,6 +5,7 @@ class xddialog{
 	public $err = '';
 	public $hash = '';
 	public $id = '';
+	private $user_table = 'user';
 	private $user_id_field = 'id';
 	private $user_image_field = 'image';
 	function __construct( $db,$utime,$userid,$hash = ''){
@@ -93,7 +94,7 @@ class xddialog{
 	function get_messages_from_dialog($new=false,$reset_status = true){
 		$messages = array(); $filter = !$new?'':' mtu.status=0 and ';
 		if( $this->id or ($this->hash and $this->id = $this->db->exists('dialog',$this->db->escape($this->hash),'hash','','id')) ){
-			$sql = ' from #_message as msg left join #_user as user on user.'.$this->user_id_field.'=msg.senderid  left join #_message_to_user as mtu on mtu.userid='.$this->userid.' and mtu.messageid=msg.id where '.$filter.' msg.dialogid='.$this->id.' and msg.dialogid in (select id from #_dialog where id in (select dialogid from #_user_to_dialog where userid='.$this->userid.')) ';
+			$sql = ' from #_message as msg left join #_'.$this->user_table.' as user on user.'.$this->user_id_field.'=msg.senderid  left join #_message_to_user as mtu on mtu.userid='.$this->userid.' and mtu.messageid=msg.id where '.$filter.' msg.dialogid='.$this->id.' and msg.dialogid in (select id from #_dialog where id in (select dialogid from #_user_to_dialog where userid='.$this->userid.')) ';
 			$full_cnt = $this->db->getRow('select count(msg.id) as cnt '.$sql.' group by msg.dialogid','cnt');//order by msg.dialogid desc,msg.public desc
 			$messages = $this->db->getRows('select mtu.status, msg.*,user.name as sender_name,user.'.$this->user_image_field.' as sender_image '.$sql.' order by msg.public asc');
 			foreach($messages as $key=>$msg)
