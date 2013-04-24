@@ -14,8 +14,11 @@ class xddialog{
 		$this->userid = $userid;
 		$this->err = '';
 		$this->hash = $hash;
-		($this->hash and $this->id = $this->db->exists('dialog',$this->db->escape($this->hash),'hash','','id')) or $this->hash='' ;
+		$rgis->exists() or $this->hash='' ;
 	}
+	function exists(){
+		return ($this->hash and $this->id = $this->db->exists('dialog',$this->db->escape($this->hash),'hash','','id')) ;
+	}	
 	function _genhash ($length = 8){
 		$password = "";
 		$possible = "2346789bcdfghjkmnpqrtvwxyzBCDFGHJKLMNPQRTVWXYZ";
