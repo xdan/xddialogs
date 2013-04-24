@@ -14,7 +14,7 @@ class xddialog{
 		$this->userid = $userid;
 		$this->err = '';
 		$this->hash = $hash;
-		$rgis->exists() or $this->hash='' ;
+		$this->exists() or $this->hash='' ;
 	}
 	function exists(){
 		return ($this->hash and $this->id = $this->db->exists('dialog',$this->db->escape($this->hash),'hash','','id')) ;
