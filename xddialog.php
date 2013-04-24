@@ -87,7 +87,7 @@ class xddialog{
 		return $users;
 	}
 	function get_user_dialogs( $start=0,$cnt = 10 ){
-		$sql = ' from #_message as msg left join user as user on user.'.$this->user_id_field.'=msg.senderid left join #_dialog as dg on dg.id=msg.dialogid left join #_message_to_user as m2u on (m2u.messageid=msg.id and m2u.userid='.$this->userid.') where msg.dialogid in (select id from #_dialog where id in (select dialogid from #_user_to_dialog where userid='.$this->userid.')) ';
+		$sql = ' from #_message as msg left join #_'.$this->user_table.' as user on user.'.$this->user_id_field.'=msg.senderid left join #_dialog as dg on dg.id=msg.dialogid left join #_message_to_user as m2u on (m2u.messageid=msg.id and m2u.userid='.$this->userid.') where msg.dialogid in (select id from #_dialog where id in (select dialogid from #_user_to_dialog where userid='.$this->userid.')) ';
 		$messages = $this->db->getRows('select * from(select dg.hash,msg.*,user.name as sender_name,user.'.$this->user_image_field.' as sender_image, m2u.status as msg_status '.$sql.' order by msg.dialogid desc,msg.public desc) as bg group by bg.dialogid  limit '.$start.','.$cnt);
 		return $messages;
 	}
