@@ -3,11 +3,8 @@ xddialogs
 
 Система диалогов на php как в контакте
 
-Для работы необходим [class.db][db]
+Для работы необходима версия php 7.4 и выше
 
-[demo][demo]
-
-[Как работать][howuse]
-[db]: https://github.com/xdan/class.db.php
-[demo]: http://xdan.ru/examples/dialog/
-[howuse]: http://xdan.ru/Sistema-dialogov-na-php-kak-v-v-kontakte.html
+- [Как работать](http://xdan.ru/Sistema-dialogov-na-php-kak-v-v-kontakte.html)
+- [db class](https://github.com/xdan/class.db.php)
+- [demo(не работает)](http://xdan.ru/examples/dialog/) 
